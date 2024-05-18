@@ -94,6 +94,8 @@ class ParagraphSizeExample extends StatelessWidget {
     String page = '';
     List<String> words = text.split(' ');
     double iconHeight = 50.0; // The height of the icon
+    double height;
+    String testPage;
 
     for (int i = 0; i < words.length; i++) {
       String word = words[i];
@@ -107,8 +109,8 @@ class ParagraphSizeExample extends StatelessWidget {
         // Check if there is space for more text after the icon
         if (i + 1 < words.length) {
           String nextWord = words[i + 1];
-          String testPage = page + ' ' + nextWord;
-          double height = _getParagraphHeight(testPage, style, size.width);
+          testPage = page + ' ' + nextWord;
+          height = _getParagraphHeight(testPage, style, size.width);
 
           // Subtract the height of the icon from the total available height
           if (height <= (size.height - 20 - iconHeight)) {
@@ -117,8 +119,8 @@ class ParagraphSizeExample extends StatelessWidget {
           }
         }
       } else {
-        String testPage = page + ' ' + word;
-        double height = _getParagraphHeight(testPage, style, size.width);
+        testPage = page + ' ' + word;
+        height = _getParagraphHeight(testPage, style, size.width);
 
         if ((height) > (size.height - 20 - iconHeight)) {
           if (page.isNotEmpty) {
