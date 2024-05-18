@@ -102,33 +102,40 @@ class ParagraphSizeExample extends StatelessWidget {
       if (word == "PLAYER_SAPO123") {
         if (page.isNotEmpty) {
           currentPageElements.add(PageElement.text(page));
+          height += _getParagraphHeight(page, style,
+              size.width); // Add the height of the text to the total height
           page = '';
         }
         currentPageElements.add(PageElement.icon());
+        height += iconHeight; // Add the height of the icon to the total height
 
         // Check if there is space for more text after the icon
         if (i + 1 < words.length) {
           String nextWord = words[i + 1];
           testPage = '$page $nextWord';
-          height += _getParagraphHeight(testPage, style, size.width);
+          double testHeight = _getParagraphHeight(testPage, style, size.width);
 
           // Subtract the height of the icon from the total available height
-          if (height >= (size.height - 20 - iconHeight)) {
+          if (height + testHeight < size.height - 20) {
             page = nextWord;
             i++; // Skip the next word as it has been added to the page
           }
         }
       } else {
         testPage = page + ' ' + word;
-        height = _getParagraphHeight(testPage, style, size.width);
+        double testHeight = _getParagraphHeight(testPage, style, size.width);
 
-        if ((height) > (size.height - 20 - iconHeight)) {
+        if (height + testHeight > size.height - 20) {
           if (page.isNotEmpty) {
             currentPageElements.add(PageElement.text(page));
+            height += _getParagraphHeight(page, style,
+                size.width); // Add the height of the text to the total height
           }
           pages.add(Page(currentPageElements));
           currentPageElements = [];
           page = word;
+          height = _getParagraphHeight(page, style,
+              size.width); // Reset the total height for the new page
         } else {
           page = testPage;
         }
