@@ -16,6 +16,22 @@ class BookPage extends StatelessWidget {
   }
 }
 
+class PageElement {
+  final String? text;
+  final bool isIcon;
+
+  PageElement.text(this.text) : isIcon = false;
+  PageElement.icon()
+      : isIcon = true,
+        text = null;
+}
+
+class Page {
+  final List<PageElement> elements;
+
+  Page(this.elements);
+}
+
 class ParagraphSizeExample extends StatelessWidget {
   final String text = 'Este é um exemplo de parágrafo que precisamos medir.';
   final List<String> text2 = [
@@ -47,38 +63,67 @@ class ParagraphSizeExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = _splitTextIntoPages(
+    List<Page> pages = _splitTextIntoPages(
         text2, TextStyle(fontSize: 20), MediaQuery.of(context).size);
 
     return PageView.builder(
       itemCount: pages.length,
       itemBuilder: (context, index) {
-        return Center(child: pages[index]);
+        return ListView(
+          children: pages[index].elements.map((element) {
+            if (element.isIcon) {
+              return Container(
+                height: 50,
+                child: Icon(Icons
+                    .play_circle_fill), // Substitua por seu ícone de player
+              );
+            } else {
+              return Text(element.text ?? '', style: TextStyle(fontSize: 20));
+            }
+          }).toList(),
+        );
       },
     );
   }
 
-  List<Widget> _splitTextIntoPages(
+  List<Page> _splitTextIntoPages(
       List<String> textComplet, TextStyle style, Size size) {
     String text = textComplet.join(' ');
-    List<Widget> pages = [];
+    List<Page> pages = [];
+    List<PageElement> currentPageElements = [];
     String page = '';
     List<String> words = text.split(' ');
 
-    for (String word in words) {
+    for (int i = 0; i < words.length; i++) {
+      String word = words[i];
       if (word == "PLAYER_SAPO123") {
         if (page.isNotEmpty) {
-          pages.add(Text(page, style: TextStyle(fontSize: 20)));
+          currentPageElements.add(PageElement.text(page));
           page = '';
         }
-        pages.add(
-            Icon(Icons.play_circle_fill)); // Substitua por seu ícone de player
+        currentPageElements.add(PageElement.icon());
+
+        // Check if there is space for more text after the icon
+        if (i + 1 < words.length) {
+          String nextWord = words[i + 1];
+          String testPage = page + ' ' + nextWord;
+          double height = _getParagraphHeight(testPage, style, size.width);
+
+          if (height <= (size.height - 60)) {
+            page = nextWord;
+            i++; // Skip the next word as it has been added to the page
+          }
+        }
       } else {
         String testPage = page + ' ' + word;
         double height = _getParagraphHeight(testPage, style, size.width);
 
         if (height > (size.height - 60)) {
-          pages.add(Text(page, style: TextStyle(fontSize: 20)));
+          if (page.isNotEmpty) {
+            currentPageElements.add(PageElement.text(page));
+          }
+          pages.add(Page(currentPageElements));
+          currentPageElements = [];
           page = word;
         } else {
           page = testPage;
@@ -87,7 +132,11 @@ class ParagraphSizeExample extends StatelessWidget {
     }
 
     if (page.isNotEmpty) {
-      pages.add(Text(page, style: TextStyle(fontSize: 20)));
+      currentPageElements.add(PageElement.text(page));
+    }
+
+    if (currentPageElements.isNotEmpty) {
+      pages.add(Page(currentPageElements));
     }
 
     return pages;
