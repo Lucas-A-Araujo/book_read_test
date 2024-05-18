@@ -46,20 +46,21 @@ class ParagraphSizeExample extends StatelessWidget {
       itemCount: pages.length,
       itemBuilder: (context, index) {
         return Container(
-          color: Colors.blue,
+          //color: Colors.blue,
           child: ListView(
             children: pages[index].elements.map((element) {
               if (element.isIcon) {
                 return Container(
                   height: iconHeight,
-                  color: Colors.amber,
+                  //color: Colors.amber,
                   child: Icon(Icons.play_circle_fill),
                 );
               } else {
                 return Text(element.text ?? '',
                     textAlign: TextAlign.justify,
-                    style:
-                        TextStyle(fontSize: 20, backgroundColor: Colors.red));
+                    style: TextStyle(
+                      fontSize: 20, /* backgroundColor: Colors.red */
+                    ));
               }
             }).toList(),
           ),
