@@ -111,7 +111,7 @@ class ParagraphSizeExample extends StatelessWidget {
           double height = _getParagraphHeight(testPage, style, size.width);
 
           // Subtract the height of the icon from the total available height
-          if (height <= (size.height - iconHeight)) {
+          if (height <= (size.height - 20 - iconHeight)) {
             page = nextWord;
             i++; // Skip the next word as it has been added to the page
           }
