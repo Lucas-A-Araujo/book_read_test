@@ -43,46 +43,51 @@ class ParagraphSizeExample extends StatelessWidget {
     '21 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '22 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n'
   ];
+  final String playerIconPlaceholder = "<PLAYER_ICON>";
 
   @override
   Widget build(BuildContext context) {
-    List<String> pages = _splitTextIntoPages(
+    List<Widget> pages = _splitTextIntoPages(
         text2, TextStyle(fontSize: 20), MediaQuery.of(context).size);
 
     return PageView.builder(
       itemCount: pages.length,
       itemBuilder: (context, index) {
-        return Center(
-          child: Text(
-            pages[index],
-            style: TextStyle(fontSize: 20),
-          ),
-        );
+        return Center(child: pages[index]);
       },
     );
   }
 
-  List<String> _splitTextIntoPages(
+  List<Widget> _splitTextIntoPages(
       List<String> textComplet, TextStyle style, Size size) {
     String text = textComplet.join(' ');
-    List<String> pages = [];
+    List<Widget> pages = [];
     String page = '';
     List<String> words = text.split(' ');
 
     for (String word in words) {
-      String testPage = page + ' ' + word;
-      double height = _getParagraphHeight(testPage, style, size.width);
-
-      if (height > (size.height - 60)) {
-        pages.add(page);
-        page = word;
+      if (word == "PLAYER_SAPO123") {
+        if (page.isNotEmpty) {
+          pages.add(Text(page, style: TextStyle(fontSize: 20)));
+          page = '';
+        }
+        pages.add(
+            Icon(Icons.play_circle_fill)); // Substitua por seu ícone de player
       } else {
-        page = testPage;
+        String testPage = page + ' ' + word;
+        double height = _getParagraphHeight(testPage, style, size.width);
+
+        if (height > (size.height - 60)) {
+          pages.add(Text(page, style: TextStyle(fontSize: 20)));
+          page = word;
+        } else {
+          page = testPage;
+        }
       }
     }
 
     if (page.isNotEmpty) {
-      pages.add(page);
+      pages.add(Text(page, style: TextStyle(fontSize: 20)));
     }
 
     return pages;
