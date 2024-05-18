@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class BookPage extends StatelessWidget {
   @override
@@ -41,7 +40,9 @@ class ParagraphSizeExample extends StatelessWidget {
     'PLAYER_SAPO123',
     '4 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '5 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    'PLAYER_SAPO123',
     '6 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    'PLAYER_SAPO123',
     '7 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '8 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '9 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
@@ -74,8 +75,8 @@ class ParagraphSizeExample extends StatelessWidget {
             if (element.isIcon) {
               return Container(
                 height: 50,
-                child: Icon(Icons
-                    .play_circle_fill), // Substitua por seu ícone de player
+                color: Colors.amber,
+                child: Icon(Icons.play_circle_fill),
               );
             } else {
               return Text(element.text ?? '', style: TextStyle(fontSize: 20));
@@ -93,7 +94,7 @@ class ParagraphSizeExample extends StatelessWidget {
     List<PageElement> currentPageElements = [];
     String page = '';
     List<String> words = text.split(' ');
-    double iconHeight = 50.0; // The height of the icon
+    double iconHeight = 50.0;
     double height = 0.0;
     String testPage;
 
@@ -102,40 +103,35 @@ class ParagraphSizeExample extends StatelessWidget {
       if (word == "PLAYER_SAPO123") {
         if (page.isNotEmpty) {
           currentPageElements.add(PageElement.text(page));
-          height += _getParagraphHeight(page, style,
-              size.width); // Add the height of the text to the total height
+          height += _getParagraphHeight(page, style, size.width);
           page = '';
         }
         currentPageElements.add(PageElement.icon());
-        height += iconHeight; // Add the height of the icon to the total height
+        height += iconHeight;
 
-        // Check if there is space for more text after the icon
         if (i + 1 < words.length) {
           String nextWord = words[i + 1];
           testPage = '$page $nextWord';
           double testHeight = _getParagraphHeight(testPage, style, size.width);
 
-          // Subtract the height of the icon from the total available height
-          if (height + testHeight < size.height - 20) {
+          if (height + testHeight < size.height) {
             page = nextWord;
-            i++; // Skip the next word as it has been added to the page
+            i++;
           }
         }
       } else {
         testPage = page + ' ' + word;
         double testHeight = _getParagraphHeight(testPage, style, size.width);
 
-        if (height + testHeight > size.height - 20) {
+        if (height + testHeight > size.height - 60) {
           if (page.isNotEmpty) {
             currentPageElements.add(PageElement.text(page));
-            height += _getParagraphHeight(page, style,
-                size.width); // Add the height of the text to the total height
+            height += _getParagraphHeight(page, style, size.width);
           }
           pages.add(Page(currentPageElements));
           currentPageElements = [];
           page = word;
-          height = _getParagraphHeight(page, style,
-              size.width); // Reset the total height for the new page
+          height = _getParagraphHeight(page, style, size.width);
         } else {
           page = testPage;
         }
