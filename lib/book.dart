@@ -1,7 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller/book_controller.dart';
 import 'package:flutter_application_1/data/book.dart';
 
-class BookPage extends StatelessWidget {
+class HistoryBookModal {
+  String? type;
+  String? body;
+  int? size;
+  String? color;
+  num? width;
+  num? height;
+
+  HistoryBookModal(
+      {this.type, this.body, this.size, this.color, this.width, this.height});
+}
+
+class BookPage extends StatefulWidget {
+  @override
+  State<BookPage> createState() => _BookPageState();
+}
+
+class _BookPageState extends State<BookPage> {
+  BookController bookController = BookController();
+
+  @override
+  void initState() {
+    getData();
+    super.initState();
+  }
+
+  getData() async {
+    await bookController.getBook();
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
