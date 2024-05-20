@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controller/book_controller.dart';
 import 'package:flutter_application_1/data/book.dart';
 
-class HistoryBookModal {
+import 'modal/history_book_modal.dart';
+
+/* class HistoryBookModal {
   String? type;
   String? body;
   int? size;
@@ -12,7 +14,7 @@ class HistoryBookModal {
 
   HistoryBookModal(
       {this.type, this.body, this.size, this.color, this.width, this.height});
-}
+} */
 
 class BookPage extends StatefulWidget {
   @override
@@ -63,10 +65,51 @@ class Page {
   Page(this.elements);
 }
 
+/* class HistoryBookModal {
+  String? type;
+  String? body;
+  int? size;
+  String? color;
+  num? width;
+  num? height;
+
+  HistoryBookModal(
+      {this.type, this.body, this.size, this.color, this.width, this.height});
+} */
+
 class ParagraphSizeExample extends StatelessWidget {
   final DataBook dataBook = DataBook();
   final String playerIconPlaceholder = "<PLAYER_ICON>";
   final double iconHeight = 50.0;
+  //HistoryBookModal
+
+  /* final List<String> text = [
+    '1 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '2 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '3 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+    'PLAYER_SAPO123',
+    '4 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '5 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+    'PLAYER_SAPO123',
+    '6 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+    'PLAYER_SAPO123',
+    '7 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '8 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '9 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '10 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '11 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '12 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '13 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '14 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '15 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '16 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '17 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '18 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '19 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '20 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '21 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
+    '22 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n'
+  ]; */
 
   @override
   Widget build(BuildContext context) {
@@ -101,18 +144,18 @@ class ParagraphSizeExample extends StatelessWidget {
   }
 
   List<Page> _splitTextIntoPages(
-      List<String> textComplet, TextStyle style, Size size) {
+      List<HistoryBookModal> textComplet, TextStyle style, Size size) {
     String text = textComplet.join(' ');
     List<Page> pages = [];
     List<PageElement> currentPageElements = [];
     String page = '';
-    List<String> words = text.split(' ');
+    List<String?> words = textComplet.map((book) => book.body).toList();
     double height = 0.0;
     String testPage;
 
     for (int i = 0; i < words.length; i++) {
-      String word = words[i];
-      if (word == "PLAYER_SAPO123") {
+      HistoryBookModal word = textComplet[i];
+      if (word.type == "play") {
         if (page.isNotEmpty) {
           currentPageElements.add(PageElement.text(page));
           height += _getParagraphHeight(page, style, size.width);
@@ -122,7 +165,7 @@ class ParagraphSizeExample extends StatelessWidget {
         height += iconHeight;
 
         if (i + 1 < words.length) {
-          String nextWord = words[i + 1];
+          String nextWord = words[i + 1]!;
           testPage = '$page $nextWord';
           double testHeight = _getParagraphHeight(testPage, style, size.width);
 
@@ -132,7 +175,7 @@ class ParagraphSizeExample extends StatelessWidget {
           }
         }
       } else {
-        testPage = page + ' ' + word;
+        testPage = page + ' ' + word.body.toString();
         double testHeight = _getParagraphHeight(testPage, style, size.width);
 
         if (height + testHeight > size.height - (size.height * 0.1)) {
@@ -142,7 +185,7 @@ class ParagraphSizeExample extends StatelessWidget {
           }
           pages.add(Page(currentPageElements));
           currentPageElements = [];
-          page = word;
+          page = word.body.toString();
           height = _getParagraphHeight(page, style, size.width);
         } else {
           page = testPage;

@@ -128,7 +128,7 @@ class DataBook {
     return list;
   }
 
-  final List<String> text = [
+  /* final List<String> text = [
     '1 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '2 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '3 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
@@ -154,5 +154,212 @@ class DataBook {
     '20 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '21 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n',
     '22 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.\n'
+  ]; */
+
+  final List<HistoryBookModal> text = <HistoryBookModal>[
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '1 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '2 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '3 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'play',
+      body: '',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '4 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '5 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'play',
+      body: '',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '6 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'play',
+      body: '',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '7 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '8 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '9 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '10 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '11 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '12 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '13 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '14 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '15 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '16 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '17 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '18 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '19 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
+    HistoryBookModal(
+      type: 'input',
+      body:
+          '20 Mussum Ipsum, cacilds vidis litro abertis. Interagi no mé, cursus quis, vehicula ac nisi. Quem manda na minha terra sou euzis! Praesent vel viverra nisi. Mauris aliquet nunc non turpis scelerisque, eget. Diuretics paradis num copo é motivis de denguis.',
+      size: 14,
+      color: '#000',
+      width: null,
+      height: null,
+    ),
   ];
 }
